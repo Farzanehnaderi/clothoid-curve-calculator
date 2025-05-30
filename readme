@@ -1,0 +1,114 @@
+📌 Introduction
+
+This application is designed for civil engineers and surveyors to calculate and visualize clothoid (Euler spiral) transition curves used in road and railway design. The program implements the exact mathematical models presented in the University of Tehran's "Route Surveying 07-Transition Curve" course material.
+🌟 Features
+
+    Four-Tab Interface:
+
+        Input parameters
+
+        Calculated parameters
+
+        Construction table
+
+        Graphical visualization
+
+    Precise Calculations:
+
+        Implements equations from pages 14-39 of the reference document
+
+        Accurate stationing (kilometrage) calculation as shown in example on page 31
+
+    Export Capabilities:
+
+        Excel export of construction points
+
+        PDF report with all parameters and plot
+
+📥 Installation
+
+    Ensure you have Python 3.8+ installed
+
+    Install required packages:
+
+bash
+
+pip install numpy matplotlib pandas reportlab tk
+
+🛠️ Usage
+
+    Input Parameters:
+
+        Enter values matching the example (L_s=120, R_c=500, Δ=20°, etc.)
+
+        Select curve direction (left/right)
+
+    Calculation:
+
+        Click "Calculate & Plot" to process
+
+        View results in respective tabs
+
+    Construction Table:
+
+        Points are automatically spaced to achieve round stationing
+
+        Each row shows:
+
+            Point number
+
+            Arc length
+
+            Deflection angle
+
+            Coordinates (X,Y)
+
+            Kilometrage
+
+    Exporting:
+
+        Use "Export to Excel" for construction data
+
+        Use "Export to PDF" for full report
+
+📊 Technical Details
+Key Formulas Implemented:
+python
+# Route Surveying 07-Transition Curve
+# From page 22
+A = sqrt(L_s * R_c)
+θ_s = L_s / (2 * R_c)
+
+# From page 25
+T_s = X_s - R_c*sin(θ_s) + (R_c + p)*tan(Δ/2)
+E_s = (R_c + p)/cos(Δ/2) - R_c
+
+# From page 28
+δ_i = (L_i²)/(6*L_s*R_c)  # Deflection angle
+
+Stationing Calculation (page 31-32):
+python
+
+Km_A = Km_T1 + L_s
+L_c = R_c * radians(Δ) - L_s  # Circular curve length
+Km_B = Km_A + L_c
+Km_T2 = Km_B + L_s
+
+📚 Academic Reference
+
+This implementation follows the "Route Surveying 07-Transition Curve" course material from the University of Tehran, specifically:
+
+    Clothoid equations (pages 14-19)
+
+    Construction methods (pages 27-39)
+
+    Example problem (page 31)
+
+📜 License
+
+This project is for educational use as part of geometric design coursework at the University of Tehran.
+👨‍💻 Author : Farzaneh Naderi
+
+Developed based on course materials by Dr. Abedini and Dr.Kanani and colleagues at the University of Tehran's Faculty of Surveying and Geospatial Engineering.
+
+For accurate field implementation, always verify calculations with traditional surveying methods.

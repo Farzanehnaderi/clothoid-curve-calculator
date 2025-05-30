@@ -1,0 +1,5 @@
+matplotlib==3.8.4
+pandas==2.2.2
+reportlab==4.1.0
+Pillow==10.3.0
+sv-ttk==1.0.2
