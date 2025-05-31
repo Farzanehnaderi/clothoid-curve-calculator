@@ -107,7 +107,11 @@ class ClothoidApp:
 
         z_p = np.insert(np.cumsum(np.diff(np.unwrap(np.radians(angles_deg)))), 0, 0)
         z_p = np.degrees(z_p)
-
+        if len(z_p) < len(tool_caman_all):
+            z_p = np.append(z_p, z_p[-1])
+        if len(l_p) < len(tool_caman_all):
+            l_p = np.append(l_p, l_p[-1])
+    
         min_len = min(len(tool_caman_all), len(z_p), len(l_p), len(Km_points))
         self.construction_data = {
     "Point": list(range(min_len)),
